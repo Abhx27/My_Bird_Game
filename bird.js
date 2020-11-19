@@ -1,4 +1,4 @@
-class Bird extends BaseClass{
+class Bird {
     constructor(){
 
               //this.bird = loadImage("")
