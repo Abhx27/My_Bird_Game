@@ -2,25 +2,46 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-var sea, land, backgroundImage;
+var bowImage,fishImage;
+
 
 function preload(){
-
+bowImage = loadImage("images/Bow.png")
+//fishImage = loadImage("images/Fish2.jpg")
 }
 function setup(){
 createCanvas(displayWidth - 30,displayHeight - 200);
 background(204, 233, 246)
 
-land = createSprite(0,800,500,200)
-land.shapeColor = "green"
+engine = Engine.create();
+world = engine.world;
 
-sea = createSprite(1080,800,1670,200)
-sea.shapeColor = "blue"
+arrow = new Arrow(500,400)
+bow = new Bow(arrow.body,{x:210,y:400})
+sea = new Sea(1000,700, 2000,400);
+land = new Land(190,450,400,400);
+fish = new Fish(displayWidth-100,700,50,50)
 
-fish = new Fish(1200,800,20,20)
+
+Matter.Body.setVelocity(fish.body,3)
+
+//fish.speed = -3
 }
 
 function draw(){
+  Engine.update(engine)
 
-    drawSprites()
+  //  drawSprites()
+
+  //console.log(displayWidth)
+  //console.log(displayHeight)
+  sea.display();
+  arrow.display();
+  fish.display();
+  bow.display();
+//image(bowImage,500,400,50,50)
+//image(fishImage,displayWidth-100,700,50,50)
+
+
+    land.display();
 }
