@@ -2,7 +2,7 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-var bowImage,fishImage;
+var fishImage, BirdGroup;
 
 
 function preload(){
@@ -12,6 +12,11 @@ bowImage = loadImage("images/Bow.png")
 function setup(){
 createCanvas(displayWidth - 30,displayHeight - 200);
 background(204, 233, 246)
+
+
+
+
+BirdGroup = new Group();
 
 engine = Engine.create();
 world = engine.world;
@@ -44,4 +49,13 @@ function draw(){
 
 
     land.display();
+    SpawnBird()
+}
+function SpawnBird(){
+  if(World.frameCount % 120 === 0){
+    var bird = createSprite(100,100,10,40)
+    bird.setVelocityX = -4;
+    bird.lifetime = 300;
+    BirdGroup.add(bird);
+  }
 }
