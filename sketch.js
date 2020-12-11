@@ -7,6 +7,7 @@ var fishImage, BirdGroup;
 
 function preload(){
 bowImage = loadImage("images/Bow.png")
+  BirdGroup = loadImage("imgae/Bird.jpg")
 //fishImage = loadImage("images/Fish2.jpg")
 }
 function setup(){
