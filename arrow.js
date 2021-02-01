@@ -9,6 +9,9 @@ class Arrow {
       this.Arrow = loadImage("images/Arrow.png");
       this.width = 50;
       this.height = 50;
+
+      
+      World.add(world, this.Arrow);
     }
   
     display() {
@@ -23,4 +26,3 @@ class Arrow {
 
      pop()
     }
-  }
